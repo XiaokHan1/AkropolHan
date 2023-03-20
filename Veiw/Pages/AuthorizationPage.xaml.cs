@@ -30,6 +30,7 @@ namespace Akropol.Veiw.Pages
             var qwert = Models.ClassHelpers.balashov.Managers.Where(i => i.Login == LogTb.Text && i.Password == PassTb.Text).FirstOrDefault();
             if (qwert != null)
             {
+                qwert = Models.ClassHelpers.managers;
                 Classes.ClassFrame.frame2.Navigate(new StartPage());
                 Classes.ClassFrame.frame1.Navigate(new MenuStartManagers());
             }

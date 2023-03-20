@@ -26,13 +26,16 @@
             </Button.Resources>
         </Button>
 
-        <Button x:Name="Menegers2" Height="40" Width="200" VerticalAlignment="Center" Grid.Column="1" 
-                Content="Менеджер по продажам" VerticalContentAlignment="Center" FontWeight="Bold" Click="Menegers2_Click">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="15" />
-                </Style>
-            </Button.Resources>
-        </Button>
+        <StackPanel VerticalAlignment="Center" Orientation="Vertical" Grid.Column="1">
+            <Button x:Name="Menegers2" Height="40" Width="200" VerticalAlignment="Center" Content="Менеджер по продажам" 
+                    VerticalContentAlignment="Center" FontWeight="Bold" Click="Menegers2_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+
     </Grid>
 </Page>

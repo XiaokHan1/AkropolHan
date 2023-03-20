@@ -9,5 +9,6 @@ namespace Akropol.Models
     class ClassHelpers
     {
         public static Helpers.BalashovAkropolEntities balashov = new Helpers.BalashovAkropolEntities();
+        public static Helpers.Managers managers;
     }
 }
