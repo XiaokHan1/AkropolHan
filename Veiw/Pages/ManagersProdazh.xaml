@@ -1,0 +1,52 @@
+﻿<Page x:Class="Akropol.Veiw.Pages.ManagersProdazh"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Akropol.Veiw.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="600"
+      Title="ManagersProdazh">
+
+    <Page.Background>
+        <ImageBrush ImageSource="/Resources/scale_1200.png"/>
+    </Page.Background>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        
+        <DataGrid Grid.ColumnSpan="3" Margin="10" Name="Dtg" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Арендованный этаж" Binding="{Binding ArendaStoreys}"/>
+                <DataGridTextColumn Header="Дата постройки" Binding="{Binding YearCostruction}"/>
+                <DataGridTextColumn Header="Расположение" Binding="{Binding Location.Locations}"/>
+                <DataGridTextColumn Header="Количество комнат" Binding="{Binding NumberRooms}"/>
+                <DataGridTextColumn Header="Цена" Binding="{Binding Summa}"/>
+                <DataGridTextColumn Header="Маркетная сумма" Binding="{Binding MarketSumma}"/>
+                <DataGridTextColumn Header="Арендная сумма" Binding="{Binding ArendSumma}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBox Name="SummaTb"  Width="200" Height="40" VerticalContentAlignment="Center" FontSize="20" HorizontalAlignment="Left" TextChanged="SummaTb_TextChanged">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15" />
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+        </StackPanel>
+
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1">
+            <ComboBox  Name="Cmb" Width="240" Height="40" FontSize="15" SelectionChanged="Cmb_SelectionChanged"/>
+        </StackPanel>
+    </Grid>
+</Page>
