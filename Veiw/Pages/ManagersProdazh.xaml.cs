@@ -41,5 +41,11 @@ namespace Akropol.Veiw.Pages
             int SelectSort = Convert.ToInt32(SummaTb.Text);
             Dtg.ItemsSource = Models.ClassHelpers.balashov.Fond.Where(i => i.Summa == SelectSort).ToList();
         }
+
+        private void Tb1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            int SelectSort = Convert.ToInt32(Tb1.Text);
+            Dtg.ItemsSource = Models.ClassHelpers.balashov.Fond.Where(i => i.NumberRooms == SelectSort).ToList();
+        }
     }
 }

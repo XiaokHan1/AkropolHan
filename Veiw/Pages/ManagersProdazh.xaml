@@ -47,6 +47,7 @@
 
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1">
             <ComboBox  Name="Cmb" Width="240" Height="40" FontSize="15" SelectionChanged="Cmb_SelectionChanged"/>
+            <TextBox Name="Tb1" Margin="20" Width="240" Height="40" VerticalContentAlignment="Center" TextChanged="Tb1_TextChanged" FontSize="15"/>
         </StackPanel>
     </Grid>
 </Page>
