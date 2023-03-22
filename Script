@@ -1,0 +1,134 @@
+USE [BalashovAkropol]
+GO
+/****** Object:  Table [dbo].[Fond]    Script Date: 22.03.2023 10:49:01 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Fond](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[NumberStoreys] [int] NOT NULL,
+	[ArendaStoreys] [int] NOT NULL,
+	[YearCostruction] [date] NOT NULL,
+	[IdLocation] [int] NOT NULL,
+	[NumberRooms] [int] NOT NULL,
+	[IdNumberBathrooms] [int] NOT NULL,
+	[Conditioner] [bit] NOT NULL,
+	[Summa] [decimal](18, 2) NOT NULL,
+	[MarketSumma] [decimal](18, 2) NOT NULL,
+	[ArendSumma] [decimal](18, 2) NOT NULL,
+	[RoomArend] [bit] NOT NULL,
+ CONSTRAINT [PK_Fond] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Location]    Script Date: 22.03.2023 10:49:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Location](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Locations] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_Location] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Managers]    Script Date: 22.03.2023 10:49:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Managers](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+	[Login] [nvarchar](50) NOT NULL,
+	[Password] [nvarchar](50) NOT NULL,
+	[IdRoles] [int] NOT NULL,
+	[IdFond] [int] NOT NULL,
+ CONSTRAINT [PK_Managers] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[NumberBathrooms]    Script Date: 22.03.2023 10:49:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[NumberBathrooms](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[NumberBathroom] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_NumberBathrooms] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Roles]    Script Date: 22.03.2023 10:49:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Roles](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Title] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_Roles] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Fond] ON 
+
+INSERT [dbo].[Fond] ([Id], [NumberStoreys], [ArendaStoreys], [YearCostruction], [IdLocation], [NumberRooms], [IdNumberBathrooms], [Conditioner], [Summa], [MarketSumma], [ArendSumma], [RoomArend]) VALUES (1, 1, 2, CAST(N'2022-02-12' AS Date), 2, 2, 2, 1, CAST(54000.00 AS Decimal(18, 2)), CAST(46000.00 AS Decimal(18, 2)), CAST(50000.00 AS Decimal(18, 2)), 0)
+INSERT [dbo].[Fond] ([Id], [NumberStoreys], [ArendaStoreys], [YearCostruction], [IdLocation], [NumberRooms], [IdNumberBathrooms], [Conditioner], [Summa], [MarketSumma], [ArendSumma], [RoomArend]) VALUES (4, 3, 3, CAST(N'1997-03-12' AS Date), 1, 4, 2, 0, CAST(80000.00 AS Decimal(18, 2)), CAST(60000.00 AS Decimal(18, 2)), CAST(75500.00 AS Decimal(18, 2)), 1)
+INSERT [dbo].[Fond] ([Id], [NumberStoreys], [ArendaStoreys], [YearCostruction], [IdLocation], [NumberRooms], [IdNumberBathrooms], [Conditioner], [Summa], [MarketSumma], [ArendSumma], [RoomArend]) VALUES (5, 2, 2, CAST(N'2022-05-07' AS Date), 1, 3, 1, 1, CAST(23000.00 AS Decimal(18, 2)), CAST(13999.00 AS Decimal(18, 2)), CAST(20000.00 AS Decimal(18, 2)), 0)
+SET IDENTITY_INSERT [dbo].[Fond] OFF
+SET IDENTITY_INSERT [dbo].[Location] ON 
+
+INSERT [dbo].[Location] ([Id], [Locations]) VALUES (1, N'окна выходят на дорогу')
+INSERT [dbo].[Location] ([Id], [Locations]) VALUES (2, N'во двор')
+INSERT [dbo].[Location] ([Id], [Locations]) VALUES (3, N'во двор и на дорогу')
+SET IDENTITY_INSERT [dbo].[Location] OFF
+SET IDENTITY_INSERT [dbo].[Managers] ON 
+
+INSERT [dbo].[Managers] ([Id], [Name], [Login], [Password], [IdRoles], [IdFond]) VALUES (2, N'Кирилл', N'qwerty', N'123', 1, 1)
+INSERT [dbo].[Managers] ([Id], [Name], [Login], [Password], [IdRoles], [IdFond]) VALUES (3, N'Владимир', N'1', N'1', 2, 4)
+INSERT [dbo].[Managers] ([Id], [Name], [Login], [Password], [IdRoles], [IdFond]) VALUES (4, N'qw', N'qwe', N'1', 1, 4)
+SET IDENTITY_INSERT [dbo].[Managers] OFF
+SET IDENTITY_INSERT [dbo].[NumberBathrooms] ON 
+
+INSERT [dbo].[NumberBathrooms] ([Id], [NumberBathroom]) VALUES (1, N'Раздельный')
+INSERT [dbo].[NumberBathrooms] ([Id], [NumberBathroom]) VALUES (2, N'Совместный')
+SET IDENTITY_INSERT [dbo].[NumberBathrooms] OFF
+SET IDENTITY_INSERT [dbo].[Roles] ON 
+
+INSERT [dbo].[Roles] ([Id], [Title]) VALUES (1, N'Менеджер по продажам')
+INSERT [dbo].[Roles] ([Id], [Title]) VALUES (2, N'Менеджер по аренде')
+SET IDENTITY_INSERT [dbo].[Roles] OFF
+ALTER TABLE [dbo].[Fond]  WITH CHECK ADD  CONSTRAINT [FK_Fond_Location] FOREIGN KEY([IdLocation])
+REFERENCES [dbo].[Location] ([Id])
+GO
+ALTER TABLE [dbo].[Fond] CHECK CONSTRAINT [FK_Fond_Location]
+GO
+ALTER TABLE [dbo].[Fond]  WITH CHECK ADD  CONSTRAINT [FK_Fond_NumberBathrooms] FOREIGN KEY([IdNumberBathrooms])
+REFERENCES [dbo].[NumberBathrooms] ([Id])
+GO
+ALTER TABLE [dbo].[Fond] CHECK CONSTRAINT [FK_Fond_NumberBathrooms]
+GO
+ALTER TABLE [dbo].[Managers]  WITH CHECK ADD  CONSTRAINT [FK_Managers_Fond] FOREIGN KEY([IdFond])
+REFERENCES [dbo].[Fond] ([Id])
+GO
+ALTER TABLE [dbo].[Managers] CHECK CONSTRAINT [FK_Managers_Fond]
+GO
+ALTER TABLE [dbo].[Managers]  WITH CHECK ADD  CONSTRAINT [FK_Managers_Roles] FOREIGN KEY([IdRoles])
+REFERENCES [dbo].[Roles] ([Id])
+GO
+ALTER TABLE [dbo].[Managers] CHECK CONSTRAINT [FK_Managers_Roles]
+GO
